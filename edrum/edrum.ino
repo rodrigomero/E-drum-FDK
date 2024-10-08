@@ -27,9 +27,8 @@ void setup() {
 void loop() {
   // (sensitivity, threshold, scantime, masktime)
   snare.singlePiezo(SNARE[0], SNARE[1], SNARE[2], SNARE[3]);
-  /
-
-      if (snare.hit == true) {
+  
+  if (snare.hit == true) {
     if (snare.velocity < 32) {
       MIDI.sendNoteOn(38, snare.velocity + 64, 1);
       MIDI.sendNoteOff(38, 0, 1);
