@@ -4,17 +4,17 @@
 // Create and bind the MIDI interface to the default hardware Serial port
 MIDI_CREATE_DEFAULT_INSTANCE();
 
-//The piezo named snare is connected to the A0 pin
+//The piezo named snare is connected to the A1 pin
 HelloDrum snare(1);
 
 //Setting
 byte SNARE[6] = {
-  40,  //sensitivity
-  5,  //threshold
-  20,  //scantime
-  12,  //masktime
-  38,  //note
-  3    //curve type
+  40,  //sensitivity (1 - 100)
+  5,  //threshold (1 - 100)
+  20,  //scantime (1 - 100) (tempo que passa scaneando o pico do valor do piezo)
+  12,  //masktime (1 - 100) (tempo que passa ignorando valores do piezo apos o midi ser enviado)
+  38,  //note (pitch) (0 - 127)
+  3    //Velocity Curve Type (0 - 4)
 };
 
 void setup() {
