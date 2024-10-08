@@ -29,18 +29,22 @@ void loop() {
   snare.singlePiezo(SNARE[0], SNARE[1], SNARE[2], SNARE[3]);
   
   if (snare.hit == true) {
-    if (snare.velocity < 32) {
-      MIDI.sendNoteOn(38, snare.velocity + 64, 1);
-      MIDI.sendNoteOff(38, 0, 1);
-    } else if (snare.velocity < 64) {
-      MIDI.sendNoteOn(39, snare.velocity + 32, 1);
-      MIDI.sendNoteOff(39, 0, 1);
-    } else if (snare.velocity < 96) {
-      MIDI.sendNoteOn(40, snare.velocity + 16, 1);
-      MIDI.sendNoteOff(40, 0, 1);
-    } else {
-      MIDI.sendNoteOn(41, snare.velocity, 1);
-      MIDI.sendNoteOff(41, 0, 1);
-    }
-  }
+  //Comment the lines below, and uncomment the if's for using the unique piezo for different sounds varying with force
+  //if you want "standard" don't change anything 
+    MIDI.sendNoteOn(SNARE[4], snare.velocity, 1);  //(note, velocity, channel)
+    MIDI.sendNoteOff(SNARE[4], 0, 1);
+    // if (snare.velocity < 32) {
+  //     MIDI.sendNoteOn(38, snare.velocity + 64, 1);
+  //     MIDI.sendNoteOff(38, 0, 1);
+  //   } else if (snare.velocity < 64) {
+  //     MIDI.sendNoteOn(39, snare.velocity + 32, 1);
+  //     MIDI.sendNoteOff(39, 0, 1);
+  //   } else if (snare.velocity < 96) {
+  //     MIDI.sendNoteOn(40, snare.velocity + 16, 1);
+  //     MIDI.sendNoteOff(40, 0, 1);
+  //   } else {
+  //     MIDI.sendNoteOn(41, snare.velocity, 1);
+  //     MIDI.sendNoteOff(41, 0, 1);
+  //   }
+  } 
 }
