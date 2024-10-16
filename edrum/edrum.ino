@@ -1,7 +1,7 @@
 #include <USB-MIDI.h>
 #include <hellodrum.h>
 
-// Create and bind the MIDI interface to the default hardware Serial port
+//Gera instancia MIDI no canal 1
 USBMIDI_CREATE_DEFAULT_INSTANCE();
 
 //The piezo named snare is connected to the A1 pin
